@@ -13,7 +13,7 @@ func read(conn net.Conn) { //i removed the pointer thingy because i hate pointer
 	reader := bufio.NewReader(conn) //does it need to be in the loop?
 	for {
 		msg, _ := reader.ReadString('\n')
-		fmt.Printf(msg)
+		fmt.Println(msg)
 	}
 }
 
@@ -23,7 +23,7 @@ func write(conn net.Conn) { //did i mention that i hate pointers?
 	for {
 		fmt.Println("Enter message: ")
 		text, _ := stdin.ReadString('\n')
-		fmt.Fprintln(conn, text) //flag returns pointers
+		fmt.Fprintf(conn, text) //flag returns pointers
 	}
 }
 
